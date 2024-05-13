@@ -6,7 +6,6 @@ const Transaction = require('../models/transaction');
 const sinon = require('sinon')
 const redis = require('redis-mock');
 
-
 chai.use(chaiHttp);
 const expect = chai.expect;
 
@@ -14,7 +13,7 @@ describe('Transaction Controller', () => {
   let req, res;
 
   beforeEach(() => {
-    let client = redis.createClient();
+    client = redis.createClient();
    
 
     req = {
@@ -80,7 +79,7 @@ describe('Transaction Controller', () => {
       });
 
       sinon.stub(redis, 'createClient').returns(client);
-      await getTransactionsByUserId(req, res);
+     let result = await getTransactionsByUserId(req, res);
 
       expect(res.statusCode).to.equal(201);
       findStub.restore();
