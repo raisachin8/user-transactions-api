@@ -1,18 +1,18 @@
 const express = require('express');
 const mongoose = require('mongoose');
+require('dotenv').config()
 
 const redis = require('redis');
 
 
 const app = express();
-const port = 3000;
-const { cacheMiddleware } = require("./middleware/cacheMiddleware.js");
+const port = process.env.PORT || 3000;
 const transactionRoutes = require('./routers/transactionRoutes.js');
 
 
 
 // Connect to MongoDB
-mongoose.connect('mongodb://localhost:27017/transactions-test');
+mongoose.connect(process.env.MONGODB_URL);
 
 // Define User and Transaction schemas
 const userSchema = new mongoose.Schema({
