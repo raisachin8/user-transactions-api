@@ -12,7 +12,7 @@ const transactionRoutes = require('./routers/transactionRoutes.js');
 
 
 // Connect to MongoDB
-mongoose.connect('mongodb://localhost:27017/transactions-test', { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect('mongodb://localhost:27017/transactions-test');
 
 // Define User and Transaction schemas
 const userSchema = new mongoose.Schema({
