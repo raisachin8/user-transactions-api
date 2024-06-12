@@ -1,4 +1,4 @@
 node_modules
 .nyrc
 .nyc_output
-coverage
+coverage/
